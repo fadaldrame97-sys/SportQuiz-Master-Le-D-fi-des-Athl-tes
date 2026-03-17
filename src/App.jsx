@@ -3,13 +3,12 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import { QuizContainer } from './composants/Quiz/quizContainer'
 
 function App() {
   return (
-    <div className="bg-green-500 text-white p-10 text-3xl">
-     
-    </div>
-  );
+    <QuizContainer />
+  )
 }
 
 export default App;

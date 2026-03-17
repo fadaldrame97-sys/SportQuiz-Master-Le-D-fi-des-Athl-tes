@@ -1,5 +1,5 @@
 import React from "react";
 
-export function Timer(){
+export function Button5050(){
     
 }
