@@ -39,8 +39,9 @@ export function QuizContainer(){
     const handleHintUse = () => {
         if(hintUsed) return;
         setHintUsed(true)
-
+        console.log('hint used');
     }
+
     return(
     <div>
       <h2>Quiz Container</h2>
@@ -56,6 +57,7 @@ export function QuizContainer(){
       </button>
 
       <button className="bg-orange-800 cursor-pointer" onClick={handleNextQuestion}>Next Question</button>
+      <button className="bg-blue-500 cursor-pointer" onClick={handleHintUse}>50/50</button>
     </div>
     )
 }
