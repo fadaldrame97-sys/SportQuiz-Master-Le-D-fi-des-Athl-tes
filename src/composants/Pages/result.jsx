@@ -1,4 +1,4 @@
-
+import ResultScreen from "../Result/Resultscreen";
 export default function PageResultat(){
 
 const fakeData={
@@ -19,3 +19,6 @@ const fakeData={
   };
 
 }
+
+
+<ResultScreen   Score={fakeData.score} Total={fakeData.total} Reponses={fakeData.answers}/>
