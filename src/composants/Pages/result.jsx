@@ -18,7 +18,14 @@ const fakeData={
     ]
   };
 
-}
+   function RelancerQuiz(){
+    console.log("relancer");
+    
+
+   }
 
 return(
-<ResultScreen   Score={fakeData.score} Total={fakeData.total} Reponses={fakeData.answers}/>);
+<ResultScreen   Score={fakeData.score} Total={fakeData.total} Reponses={fakeData.answers} relancer={RelancerQuiz}/>);
+
+
+}
