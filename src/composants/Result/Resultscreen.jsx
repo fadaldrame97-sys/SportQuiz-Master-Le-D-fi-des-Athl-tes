@@ -1,7 +1,7 @@
 
-export default function ResultScreen(){
+export default function ResultScreen({Score,Total,Reponses}){
 
 
 
-    
+
 }
