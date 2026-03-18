@@ -1,5 +1,9 @@
 import React from "react";
 
-export function Scoreboard(){
-
+export function Scoreboard({ score }) {
+    return (
+        <p>
+            {score}
+        </p>
+    )
 }

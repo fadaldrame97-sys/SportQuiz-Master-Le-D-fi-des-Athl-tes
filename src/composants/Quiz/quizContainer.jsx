@@ -1,4 +1,7 @@
 import React, { useState,useEffect } from "react";
+import { Scoreboard } from "./ScoreBoard";
+import { Timer } from "./Timer";
+import { Button } from "./Button";
 
 export function QuizContainer(){
     const [score,setScore] = useState(0)
@@ -45,19 +48,26 @@ export function QuizContainer(){
     return(
     <div>
       <h2>Quiz Container</h2>
-      <p>Score: {score}</p>
-      <p>Time Left: {timeLeft}s</p>
+      <div className="flex justify-between">
+        <Scoreboard score={score}/>
+        <Timer timeleft={timeLeft}/>
+      </div>
 
+        <div className="flex flex-col items-center gap-8">
       <button className="bg-green-300 cursor-pointer" onClick={() => handleAnswerSelect("France", "France")}>
         Test correct answer
       </button>
 
       <button className="bg-amber-300 cursor-pointer" onClick={() => handleAnswerSelect("Brazil", "France")}>
         Test wrong answer
-      </button>
-
+      </button>      
       <button className="bg-orange-800 cursor-pointer" onClick={handleNextQuestion}>Next Question</button>
       <button className="bg-blue-500 cursor-pointer" onClick={handleHintUse}>50/50</button>
+        </div>
+
+
+
+      <Button />
     </div>
     )
 }
