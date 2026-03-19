@@ -1,0 +1,31 @@
+import ResultScreen from "../Result/Resultscreen";
+export default function PageResultat(){
+
+const fakeData={
+    score: 7,
+    total: 10,
+    answers: [
+      {
+        question: "Quelle est la capitale de la France ?",
+        correctAnswer: "Paris",
+        userAnswer: "Lyon"
+      },
+      {
+        question: "2 + 2 ?",
+        correctAnswer: "4",
+        userAnswer: "4"
+      }
+    ]
+  };
+
+   function RelancerQuiz(){
+    console.log("relancer");
+    
+
+   }
+
+return(
+<ResultScreen   score={fakeData.score} total={fakeData.total} reponses={fakeData.answers} relancer={RelancerQuiz}/>);
+
+
+}
