@@ -9,7 +9,6 @@ import ErrorMessage from "./composants/setup/errorMessage";
 
 function App() {
   const [gameState, setGameState] = useState("setup"); 
-  // "setup", "loading", "error", "ready"
 
   const [error, setError] = useState(null);
   const [questions, setQuestions] = useState([]);
@@ -20,7 +19,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `https://opentdb.com/api.php?amount=20&category=21`
+        `https://opentdb.com/api.php?amount=${amount}&category=21&difficulty=${difficulty}&type=multiple`
       );
       const data = await response.json();
 
@@ -49,9 +48,13 @@ function App() {
       {gameState === "error" && <ErrorMessage message={error} />}
 
       {gameState === "ready" && (
-        <p>Quiz chargé  — maintenant l’affichage des questions </p>
-      )}
-
+  <>
+    <p>Quiz chargé 👍 — voici les données :</p>
+    <pre className="text-sm text-black bg-white p-4 rounded">
+      {JSON.stringify(questions, null, 2)}
+    </pre>
+  </>
+)}
     </div>
   );
 }
