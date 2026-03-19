@@ -25,7 +25,7 @@ const fakeData={
    }
 
 return(
-<ResultScreen   Score={fakeData.score} Total={fakeData.total} Reponses={fakeData.answers} relancer={RelancerQuiz}/>);
+<ResultScreen   score={fakeData.score} total={fakeData.total} reponses={fakeData.answers} relancer={RelancerQuiz}/>);
 
 
 }

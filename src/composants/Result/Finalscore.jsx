@@ -1,9 +1,9 @@
-export default function ScoreFinale({Score,Total}){
+export default function ScoreFinale({score,total}){
 
     return(
         <div>
      <h1>  Score Finale </h1>
-     <p> Score: {Score}/{Total}</p> 
+     <p> Score: {score}/{total}</p> 
 
 
         </div>
