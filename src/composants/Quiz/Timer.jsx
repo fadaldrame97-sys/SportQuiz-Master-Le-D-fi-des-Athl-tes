@@ -1,10 +1,10 @@
 import React from "react";
 import { QuizContainer } from "./quizContainer";
 
-export function Timer({timeleft}) {
+export function Timer({timeLeft}) {
     return (
-        <div className="flex justify-center items-center w-8 h-8 rounded-full">
-            {timeleft}
+        <div className="bg-gray-100 px-4 py-2 rounded-xl text-sm font-bold text-gray-700 shadow-sm">
+          {timeLeft}s
         </div>
     )
 }
