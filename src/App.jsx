@@ -4,15 +4,56 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import QuizSetupForm from "./composants/setup/quizSetupForm";
+import Loader from "./composants/setup/laoder";
+import ErrorMessage from "./composants/setup/errorMessage";
 
-const startQuiz = (config) => {
-  console.log("Config choisie :", config);
-};
 function App() {
-   return (
-    <div className="bg-green-500 text-white p-10 text-3xl">
-      <QuizSetupForm onStart={startQuiz} />
+  const [gameState, setGameState] = useState("setup"); 
+  // "setup", "loading", "error", "ready"
+
+  const [error, setError] = useState(null);
+  const [questions, setQuestions] = useState([]);
+
+  const startQuiz = async ({ amount, difficulty }) => {
+    setGameState("loading");
+    setError(null);
+
+    try {
+      const response = await fetch(
+        `https://opentdb.com/api.php?amount=20&category=21`
+      );
+      const data = await response.json();
+
+      if (data.response_code !== 0) {
+        throw new Error("Pas assez de questions");
+      }
+
+      setQuestions(data.results);
+      setGameState("ready");
+
+    } catch (err) {
+      setError("Erreur lors du chargement ");
+      setGameState("error");
+    }
+  };
+
+  return (
+    <div className="bg-green-500 text-white p-10 text-2xl">
+
+      {gameState === "setup" && (
+        <QuizSetupForm onStart={startQuiz} />
+      )}
+
+      {gameState === "loading" && <Loader />}
+
+      {gameState === "error" && <ErrorMessage message={error} />}
+
+      {gameState === "ready" && (
+        <p>Quiz chargé  — maintenant l’affichage des questions </p>
+      )}
+
     </div>
   );
 }
+
 export default App;
